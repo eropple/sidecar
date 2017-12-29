@@ -1,8 +1,8 @@
 # -*- mode: ruby -*-
 # frozen_string_literal: false
+
 # vi: set ft=ruby :
 
-# rubocop:disable Style/MutableConstant
 
 Vagrant.configure(2) do |config|
   config.vm.box = "bento/centos-7.4"

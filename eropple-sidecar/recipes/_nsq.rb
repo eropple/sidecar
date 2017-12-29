@@ -5,25 +5,20 @@ poise_archive node['sidecar']['nsq']['url'] do
   strip_components 2
 end
 
-poise_service_user "nsq"
-
 poise_service "nsqlookupd" do
   action %i[enable start]
 
-  user "nsq"
   command "/usr/local/bin/nsqlookupd"
 end
 
 poise_service "nsqd" do
   action %i[enable start]
 
-  user "nsq"
   command "/usr/local/bin/nsqd --lookupd-tcp-address=127.0.0.1:4160"
 end
 
 poise_service "nsqadmin" do
   action %i[enable start]
 
-  user "nsq"
   command "/usr/local/bin/nsqadmin --lookupd-http-address=127.0.0.1:4161"
 end

@@ -8,9 +8,7 @@ bash "installing-mailcatcher" do
   BASH
 end
 
-user 'mailcatcher' # can't use poise_service_user, expects a home directory
 poise_service 'mailcatcher' do
-  user 'mailcatcher'
   action %i[enable start]
 
   command '/bin/scl enable rh-ruby24 "mailcatcher --foreground --ip 0.0.0.0"'
